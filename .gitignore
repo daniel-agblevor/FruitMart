@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+ENV/
+*.sqlite3
+
+# Django
+*.log
+local_settings.py
+db.sqlite3
+media/
+staticfiles/
+
+# Environment
+.env
+.env.*
+
+# VSCode
+.vscode/
+.history/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# PyCharm
+.idea/
+
+# Migrations
+**/migrations/*.py
+**/migrations/*.pyc
+!*/migrations/__init__.py
+
+# Test/coverage
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+
+# Deployment
+*.bak
+*.swp
+*.orig
+
+# Node (if you add frontend tooling)
+node_modules/
+dist/
+build/
