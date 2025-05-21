@@ -1,5 +1,3 @@
-Thanks, Daniel. Your current README is already structured and informative, which sets a solid foundation. That said, I’ll now provide:
-
 ---
 
 ### ✅ **Refined & Professional README**
