@@ -1,5 +1,3 @@
----
-
 ### ✅ **Refined & Professional README**
 
 # 🛒 FruitMart – Django-Based Grocery E-Commerce Store
