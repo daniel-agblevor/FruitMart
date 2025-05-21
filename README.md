@@ -1,298 +1,191 @@
-# 🛒 FruitMart – Django E-Commerce Grocery Store
-
-FruitMart is a responsive, full-stack e-commerce web application for fresh fruit and grocery shopping. Built with Django and Bootstrap, it allows users to browse products, search for items, manage a cart, and place orders with a sleek, user-friendly interface.
-
-![FruitMart Screenshot](assets/fruitmart_home.png)
+Thanks, Daniel. Your current README is already structured and informative, which sets a solid foundation. That said, I’ll now provide:
 
 ---
 
-## 🚀 Features
+### ✅ **Refined & Professional README**
 
-- 🧺 Product catalog with images, descriptions, and dynamic pricing
-- 🛒 Cart system with "Add to Cart" and "Buy Now" functionality
-- 🔍 Search bar for quick product lookup
-- 👤 User authentication (sign up, login, session-based cart)
-- 📦 Order placement and confirmation
-- 📱 Mobile-responsive layout using Bootstrap
-- 🧠 Scalable, modular Django app structure
+# 🛒 FruitMart – Django-Based Grocery E-Commerce Store
+
+**FruitMart** is a responsive, modular e-commerce web application designed for grocery and fresh produce browsing. Built with Django and Bootstrap, it features a scalable architecture suitable for small-to-mid-scale digital storefronts. Ideal for developers looking to learn or build upon Django’s e-commerce capabilities.
+
+---
+
+## 🚀 Key Features
+
+### ✅ Implemented
+
+* 🧺 Dynamic product catalog with images, descriptions, prices, and stock tracking
+* 🏷️ Offer and discount system managed via Django Admin
+* 📱 Mobile-first responsive UI using Bootstrap 5
+* 🔧 Admin dashboard for managing products and promotions
+
+### 🛠️ In Development
+
+* 🛒 Shopping cart and secure checkout
+* 👤 User registration, login, and profile management
+* 🔍 Product search, filtering, and sorting
+* 📦 Order placement and confirmation
+* 🌐 REST API for product and order endpoints
 
 ---
 
 ## 🧰 Tech Stack
 
-| Layer       | Tools Used                          |
-|-------------|-------------------------------------|
-| Frontend    | HTML5, CSS3, Bootstrap, JavaScript |
-| Backend     | Django 4.x, Django ORM              |
-| Database    | SQLite (PostgreSQL-compatible)      |
-| Auth        | Django Auth                         |
-| Deployment  | Render / Railway / Localhost        |
-| Versioning  | Git & GitHub                        |
+| Layer       | Technology                    |
+| ----------- | ----------------------------- |
+| Frontend    | HTML5, CSS3, Bootstrap 5      |
+| Backend     | Django 4.x, Django ORM        |
+| Database    | MySQL (default), SQLite (dev) |
+| Admin Panel | Django Admin                  |
+| Versioning  | Git, GitHub                   |
 
 ---
 
 ## 🗂️ Project Structure
 
 ```text
-fruitmart/
-├── manage.py
-├── requirements.txt
-├── db.sqlite3
-├── media/                     # Uploaded product images
-├── static/                    # Static files (CSS, JS, assets)
-│
-├── fruitmart/                 # Django project configuration
-│   ├── __init__.py
-│   ├── settings.py            # Global settings
-│   ├── urls.py                # Root URL routing
-│   ├── wsgi.py
-│   └── asgi.py
-│
-├── store/                     # Core e-commerce logic
-│   ├── admin.py
-│   ├── apps.py
-│   ├── models.py              # Product, Cart, Order models
-│   ├── views.py               # Business logic
-│   ├── urls.py                # App-level routing
-│   ├── templates/store/       # Product listing templates
-│   └── static/store/          # Store-specific CSS/JS
-│
-├── users/                     # Custom user app (auth)
-│   ├── admin.py
-│   ├── apps.py
-│   ├── forms.py
-│   ├── models.py              # (If extending default User)
-│   ├── views.py
-│   ├── urls.py
-│   └── templates/registration/  # Login, signup templates
-│
-└── templates/                 # Base HTML templates (base.html, etc.)
+FruitMart/
+├── grocery_shop/                # Django project config
+│   └── settings.py, urls.py, etc.
+├── products/                    # App: catalog & offers
+│   └── models.py, views.py, admin.py
+├── templates/                   # Global and app-specific templates
+├── static/                      # Static files (CSS, JS, images)
+├── media/                       # Uploaded product media
+├── requirements.txt             # Dependencies
+└── db.sqlite3                   # SQLite DB (dev only)
 ```
 
 ---
 
-## 🧪 Setup Instructions
+## ⚙️ Getting Started
 
-> Follow the steps below to run the project locally:
-
-### 1. Clone the repository
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/fruitmart.git
-cd fruitmart
+git clone https://github.com/daniel-agblevor/FruitMart.git
+cd FruitMart
 ```
 
-### 2. Create a virtual environment & install dependencies
+### 2. Set Up a Virtual Environment
 
 ```bash
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+# Activate (Windows)
+venv\Scripts\activate
+# Activate (macOS/Linux)
+source venv/bin/activate
+```
+
+### 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
-### 3. Apply migrations and run the server
+### 4. Configure the Database
+
+#### For local development (SQLite):
+
+In `grocery_shop/settings.py`:
+
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+```
+
+#### For production (MySQL):
+
+Update the `DATABASES` setting with your MySQL credentials.
+
+### 5. Run Migrations and Start Server
 
 ```bash
 python manage.py migrate
 python manage.py runserver
 ```
 
-### 4. Access the app
+### 6. Launch the App
 
-Open [http://localhost:8000](http://localhost:8000) in your browser.
-
----
-
-## 🌐 Live Demo
-
-[🔗 https://fruitmart.onrender.com](https://fruitmart.onrender.com) *(Deployed on Render)*
+Visit: [http://localhost:8000](http://localhost:8000)
 
 ---
 
-## 📸 Screenshots
+## 🔐 Admin Interface
 
-| Homepage | Product Grid | Cart |
-|----------|--------------|------|
-| ![Home](assets/homepage.png) | ![Grid](assets/products.png) | ![Cart](assets/cart.png) |
+Create a superuser to manage products and offers:
 
----
+```bash
+python manage.py createsuperuser
+```
 
-## 🧩 Potential Improvements & Roadmap
-
-### 🔧 Core Technical Improvements
-- **Stripe/PayPal Integration** for secure payments.
-- Enhanced **Django Admin** with product management tools.
-- Add **Django REST Framework** APIs for products, orders, and cart.
-- **User Profiles** with saved addresses and order history.
-
-### 🎯 UX and Frontend Enhancements
-- **AJAX-based interactions** for cart, search, and auth.
-- Add **product filtering, sorting, and pagination**.
-- Improve search with **full-text search** or `django-haystack`.
-- Fully optimized **mobile experience** (sticky cart, mobile nav).
-
-### 🔒 Security & Robustness
-- Secure uploads, strong auth, CSRF protection (production-ready config).
-- Add unit and integration tests (`pytest-django`).
-- CI/CD using **GitHub Actions** or GitLab CI.
-
-### ☁️ DevOps & Deployment
-- Add **Docker** support (`Dockerfile`, `docker-compose.yml`).
-- Use `.env` for environment variables (`python-decouple` or `django-environ`).
-- Add **error logging/monitoring** (e.g., Sentry).
-
-### 🧠 AI/ML & Smart Features
-- **Product Recommendations** (based on cart or popularity).
-- Add a **FAQ chatbot** for customer support.
-
-### 📈 Business-Ready Features
-- **Discount Codes / Coupons** with expiry and limits.
-- **Email Notifications** for order confirmations and status.
-- **Abandoned Cart Reminders** via email or alerts.
+Then log in at: [http://localhost:8000/admin/](http://localhost:8000/admin/)
 
 ---
 
-## 👤 Author
+## 🛣️ Roadmap
 
-**Daniel** – [LinkedIn](https://linkedin.com/in/daniel-agblevor) | [GitHub](https://github.com/daniel-agblevor)  
-_Data Scientist & Backend Developer passionate about full-stack innovation._
+* ✅ Product listings and admin
+* 🛒 Cart and checkout
+* 🔐 Authentication and session management
+* 🔍 Search and filtering
+* 🧾 Order processing and history
+* 🔌 RESTful API (Django REST Framework)
+* 💳 Stripe or PayPal integration
+* 🐳 Dockerized deployment
+* ✅ Unit and integration testing
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! To get started:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature-name`)
+3. Commit your changes (`git commit -m "Add feature"`)
+4. Push to your fork (`git push origin feature-name`)
+5. Submit a Pull Request
+
+> Please follow [PEP8](https://peps.python.org/pep-0008/) guidelines and write meaningful commit messages.
+
+---
+
+## 🧪 Running Tests
+
+Basic testing setup is included:
+
+```bash
+python manage.py test
+```
+
+More structured tests will be added with coverage as features evolve.
+
+---
+
+## ❓ FAQ
+
+**Q: Can I use SQLite in production?**
+A: It's not recommended. Use MySQL or PostgreSQL for production-grade deployments.
+
+**Q: How do I add products?**
+A: Log into the admin dashboard and use the product model forms.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
----
-
-### ✅ Next Steps:
-
-1. **Update screenshot paths** (replace `assets/homepage.png`, etc.)
-2. **Deploy** the site to [Render](https://render.com/) or [Railway](https://railway.app/) and update the Live Demo link.
-3. Replace `yourusername` and `yourname` with actual GitHub/LinkedIn info.
-4. Push the `README.md` to your GitHub repo root.
-
-Let me know if you'd like help automating deployment or implementing any of the enhancements above.iendly interface.
-
-![FruitMart Screenshot](assets/screenshot.png)
-
----
-
-## 🚀 Features
-
-- 🧺 Product catalog with images, descriptions, and dynamic pricing
-- 🛒 Cart system with "Add to Cart" and "Buy Now" functionality
-- 🔍 Search bar for quick product lookup
-- 👤 User authentication (sign up, login, session-based cart)
-- 📦 Order placement and confirmation
-- 📱 Mobile-responsive layout using Bootstrap
-- 🧠 Scalable, modular Django app structure
-
----
-
-## 🧰 Tech Stack
-
-| Layer       | Tools Used                          |
-|---          |        |
-|-------------|-----------|
-| Frontend    | HTML5, CSS3, Bootstrap, JavaScript |
-| Backend     | Django 4.x, Django ORM              |
-| Database    | SQLite (PostgreSQL-compatible)      |
-| Auth        | Django Auth                         |
-| Deployment  | Render / Railway / Localhost        |
-| Versioning  | Git & GitHub                        |
-
----
-
-## 🗂️ Project Structure
-
-```
-fruitmart/
-├── manage.py
-├── fruitmart/             # Project config
-│   ├── settings.py
-│   ├── urls.py
-├── store/                 # Core app
-│   ├── models.py          # Product, Order, Cart models
-│   ├── views.py           # Logic for views
-│   ├── urls.py            # App routing
-│   ├── templates/store/   # HTML templates
-├── users/                 # User auth system
-│   ├── views.py, forms.py
-│   ├── templates/registration/
-├── static/                # CSS, JS, images
-├── media/                 # Product images
-└── requirements.txt
-```
-
----
-
-## 🧪 Setup Instructions
-
-> Follow the steps below to run the project locally:
-
-### 1. Clone the repository
-
-```bash
-git clone https://github.com/yourusername/fruitmart.git
-cd fruitmart
-```
-
-### 2. Create a virtual environment & install dependencies
-
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-```
-
-### 3. Apply migrations and run the server
-
-```bash
-python manage.py migrate
-python manage.py runserver
-```
-
-### 4. Access the app
-
-Open [http://localhost:8000](http://localhost:8000) in your browser.
-
----
-
-## 🌐 Live Demo
-
-[🔗 https://fruitmart.onrender.com](https://fruitmart.onrender.com) &nbsp; *(Deployed on Render)*
-
----
-
-## 📸 Screenshots
-
-| Homepage | Product Grid | Cart |
-|----------|--------------|------|
-| ![Home](assets/homepage.png) | ![Grid](assets/products.png) | ![Cart](assets/cart.png) |
-
----
-
-## 🔒 Optional Improvements
-
-- Stripe/PayPal integration for payments
-- REST API with Django REST Framework
-- Admin dashboard enhancements
-- Docker support (`Dockerfile`, `docker-compose.yml`)
-- Unit testing with `pytest-django`
+MIT License – See [LICENSE](LICENSE) for full details.
 
 ---
 
 ## 👤 Author
 
-**Daniel** – [LinkedIn](https://linkedin.com/in/daniel-agblevor) | [GitHub](https://github.com/daniel-aglevor)  
-_Data Scientist & Backend Developer passionate about full-stack innovation._
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-```
+**Daniel Agblevor**
+🔗 [LinkedIn](https://linkedin.com/in/daniel-agblevor) • 💻 [GitHub](https://github.com/daniel-agblevor)
 
 ---
