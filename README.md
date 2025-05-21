@@ -8,6 +8,12 @@ Thanks, Daniel. Your current README is already structured and informative, which
 
 **FruitMart** is a responsive, modular e-commerce web application designed for grocery and fresh produce browsing. Built with Django and Bootstrap, it features a scalable architecture suitable for small-to-mid-scale digital storefronts. Ideal for developers looking to learn or build upon Django’s e-commerce capabilities.
 
+![FruitMart Screenshot](assets/fruitmart_home.png)
+
+---
+
+![FruitMart Screenshot](assets/admin.png)
+
 ---
 
 ## 🚀 Key Features
