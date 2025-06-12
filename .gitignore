@@ -1,4 +1,9 @@
 # Python
+<<<<<<< Updated upstream
+=======
+*.py[cod]
+__pycache__
+>>>>>>> Stashed changes
 __pycache__/
 *.py[cod]
 *.egg
